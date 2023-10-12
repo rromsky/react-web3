@@ -328,7 +328,7 @@
   "sourceMap": "69:227:4:-:0;;;116:45;;;;;;;;;;145:10;137:5;;:18;;;;;;;;;;;;;;;;;;69:227;;;;;;",
   "deployedSourceMap": "69:227:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;89:20;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;:::o;7:118:6:-;94:24;112:5;94:24;:::i;:::-;89:3;82:37;72:53;;:::o;131:222::-;224:4;262:2;251:9;247:18;239:26;;275:71;343:1;332:9;328:17;319:6;275:71;:::i;:::-;229:124;;;;:::o;359:96::-;396:7;425:24;443:5;425:24;:::i;:::-;414:35;;404:51;;;:::o;461:126::-;498:7;538:42;531:5;527:54;516:65;;506:81;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract Owned {\r\n  address public owner;\r\n\r\n  constructor() {\r\n    owner = msg.sender;\r\n  }\r\n\r\n  modifier onlyOwner {\r\n    require(\r\n      msg.sender == owner,\r\n      \"Only owner can call this function\"\r\n    );\r\n    _;\r\n  }\r\n}",
-  "sourcePath": "C:\\Users\\Emad\\Desktop\\1\\web3-react-prj\\contracts\\Owned.sol",
+  "sourcePath": "C:\\Users\\Emad\\Desktop\\1\\react-web3\\contracts\\Owned.sol",
   "ast": {
     "absolutePath": "project:/contracts/Owned.sol",
     "exportedSymbols": {
@@ -648,7 +648,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-10-11T16:45:28.148Z",
+  "updatedAt": "2023-10-12T10:27:40.075Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
