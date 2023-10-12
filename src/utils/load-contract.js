@@ -5,10 +5,10 @@ export const loadContract = async (name, provider) => {
   }
   const res = await fetch(`/contracts/${name}.json`);
   const Artifact = await res.json();
-  if (Artifact.networks["sepolia"].address) {
+  if (Artifact.networks[NETWORK_ID].address) {
     const contract = new provider.eth.Contract(
       Artifact.abi,
-      "0xf018D0FcE830eb2CC64d8240Fd4b30363903313E"
+      Artifact.networks[NETWORK_ID].address
     );
     return contract;
   } else {
