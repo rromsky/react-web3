@@ -1,4 +1,4 @@
-const NETWORK_ID = 5777;
+const NETWORK_ID = 11155111;
 export const loadContract = async (name, provider) => {
   if (!NETWORK_ID) {
     return Promise.reject("Network ID is not defined!");
