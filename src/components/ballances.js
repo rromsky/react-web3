@@ -76,11 +76,9 @@ const Ballances = () => {
   useEffect(() => {
     const loadProvider = async () => {
       const provider = await detectEthereumProvider();
-
       if (provider) {
         const web3 = new Web3(provider);
         const contract = await loadContract("Faucet", web3);
-        // console.log(contract);
         setAccountListener(provider);
         setWeb3({
           web3,
