@@ -56,8 +56,8 @@ const Ballances = () => {
   ];
 
   const setAccountListener = (provider) => {
-    provider.on("accountsChanged", (_) => window.location.reload());
-    provider.on("chainChanged", (_) => window.location.reload());
+    provider.on("accountsChanged", (_) => reloadEffect());
+    provider.on("chainChanged", (_) => reloadEffect());
   };
 
   const requestAccount = async () => {
