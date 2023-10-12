@@ -31,7 +31,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ninterface IFaucet {\r\n  function addFunds() external payable;\r\n  function withdraw(uint amount) external;\r\n}",
-  "sourcePath": "C:\\Users\\Emad\\Desktop\\1\\web3-react-prj\\contracts\\IFaucet.sol",
+  "sourcePath": "C:\\Users\\Emad\\Desktop\\1\\react-web3\\contracts\\IFaucet.sol",
   "ast": {
     "absolutePath": "project:/contracts/IFaucet.sol",
     "exportedSymbols": {
@@ -167,7 +167,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-10-11T16:45:28.143Z",
+  "updatedAt": "2023-10-12T10:27:40.071Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
