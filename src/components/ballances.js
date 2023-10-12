@@ -3,7 +3,10 @@ import Web3 from "web3";
 import { loadContract } from "../utils/load-contract";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { Link } from "react-router-dom";
+
+//текст для модалки по типу транзакції
 const textModal = ["withdraw from", "transfer on"];
+//Якщо проблема з web3 провайдером (Нема метамаски)
 const web3Problem = () => (
   <>
     <main className="h-100 is-flex ai-c jc-c">
@@ -35,6 +38,7 @@ const Ballances = () => {
   const [isRequstHere, setRequest] = useState(false);
   const [transactionSucces, setSucces] = useState(false);
   const [txInput, setInput] = useState("");
+  //Функції для поповненя\виводу средств
   const func = [
     async () => {
       const { contract, web3 } = web3Api;
@@ -54,12 +58,12 @@ const Ballances = () => {
       reloadEffect();
     },
   ];
-
+  //Якщо в акаунт війшли відстежувати зміни мережі або кошельків
   const setAccountListener = (provider) => {
     provider.on("accountsChanged", (_) => window.location.reload());
     provider.on("chainChanged", (_) => window.location.reload());
   };
-
+  //Запит аккаунта з екстеншина
   const requestAccount = async () => {
     const time = setTimeout(() => {
       setLoading(false);
@@ -73,6 +77,7 @@ const Ballances = () => {
     setLoading(false);
     window.clearTimeout(time);
   };
+  //Конект провайдера
   useEffect(() => {
     const loadProvider = async () => {
       const provider = await detectEthereumProvider();
@@ -93,7 +98,7 @@ const Ballances = () => {
     };
     loadProvider();
   }, []);
-
+  //Конект аккаунта
   useEffect(() => {
     // const { web3 } = web3Api;
     if (web3Api.web3) {
@@ -110,7 +115,7 @@ const Ballances = () => {
       getAccount();
     }
   }, [web3Api.web3, shouldReload]);
-
+  //Відправка транзакції
   const sendTransaction = async () => {
     setRequest(false);
     setConnect(false);
@@ -135,6 +140,7 @@ const Ballances = () => {
       setConnect(true);
     }
   };
+  //Модальне вікно для транзакції
   const modal = () => (
     <>
       <div className={`modal ${showModal && "is-active"}`}>
@@ -194,6 +200,7 @@ const Ballances = () => {
       </div>
     </>
   );
+  //Елемент балансу якщо все гуд
   const ballances = () => (
     <>
       {modal()}
@@ -232,6 +239,7 @@ const Ballances = () => {
       </main>
     </>
   );
+  //Помилка підключення до аккаунта
   const accountProblem = () => (
     <>
       <main className="h-100 is-flex ai-c jc-c ">
@@ -260,6 +268,7 @@ const Ballances = () => {
       </main>
     </>
   );
+  //Контент що потрібно відобразити
   const getContent = () => <>{account ? ballances() : accountProblem()}</>;
   return <>{web3Api.web3 ? getContent() : web3Problem()}</>;
 };
